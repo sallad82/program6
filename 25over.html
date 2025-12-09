@@ -65,9 +65,7 @@
                     this.tickets = await response.json()
                     //this.tickets = data.filter(ticket => (ticket.actual_speed - ticket.posted_speed) > 24);
 
-					this.tickets = data.filter(ticket => {
-                        return (ticket.actual_speed - ticket.posted_speed) > 25;
-                    });
+					this.tickets = data.filter(ticket => ticket.mph_over > 25);
                 },
             }
           })
@@ -77,6 +75,7 @@
 
 </script>
 </body></html>
+
 
 
 
