@@ -1,0 +1,29 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">   <title>Vue 2</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+
+    <div id="template">
+        <p><input type='text' v-model="firstName"> Enter first name</p>
+        <p><input type='text' v-model="lastName"> Enter last name</p>  
+        <!-- v-model='variable' binds a variable value to the value of an html form element -->
+        <h3>Welcome {{ firstName + ' ' + lastName }}</h3>
+    </div>
+
+      
+    <script>
+        const app = Vue.createApp({
+            data() {       // data function must return an object
+                return {
+                    firstName: '',
+                    lastName: ''
+                }
+            }
+        })
+  
+        app.mount('#template')   // mount in div id=template
+    </script>  
+</body>
+</html>
