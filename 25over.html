@@ -62,9 +62,9 @@
             methods: {    // ajax request
                 async getData() {
                     const response = await fetch('tickets1.json')
-                    this.tickets = await response.json()
+                    //this.tickets = await response.json()
                     //this.tickets = data.filter(ticket => (ticket.actual_speed - ticket.posted_speed) > 24);
-
+					const data = await response.json();
 					this.tickets = data.filter(ticket => ticket.mph_over > 25);
                 },
             }
@@ -75,6 +75,7 @@
 
 </script>
 </body></html>
+
 
 
 
