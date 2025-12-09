@@ -50,6 +50,8 @@
 </div>   <!-- end class= 'container' -->
 
 <script>
+
+	   const { createApp } = Vue;
        let app = Vue.createApp({
             data() {     // returns an object of data
                 return {
@@ -65,7 +67,11 @@
                     //this.tickets = await response.json()
                     //this.tickets = data.filter(ticket => (ticket.actual_speed - ticket.posted_speed) > 24);
 					const data = await response.json();
-					this.tickets = data.filter(ticket => ticket.mph_over > 25);
+					this.tickets = data.filter(ticket => {
+          				const actual = Number(ticket.actual_speed);
+          				const posted = Number(ticket.posted_speed);
+          				return (actual - posted) > 25;
+        			});
                 },
             }
           })
@@ -75,6 +81,7 @@
 
 </script>
 </body></html>
+
 
 
 
